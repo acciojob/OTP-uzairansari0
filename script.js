@@ -1,22 +1,27 @@
-//your JS code here. If required.
 const inputs = document.querySelectorAll('.code');
 
 inputs.forEach((input, index) => {
-    // Handle typing a number
+    // 1. Forward movement: Triggered when a character is entered
     input.addEventListener('input', (e) => {
-        if (e.target.value.length > 0 && index < inputs.length - 1) {
-            inputs[index + 1].focus();
+        if (e.target.value.length > 0) {
+            if (index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
         }
     });
 
-    // Handle backspace
+    // 2. Backward movement: Triggered on Backspace
     input.addEventListener('keydown', (e) => {
         if (e.key === 'Backspace') {
+            // If the current input is empty, move focus to the previous one
             if (input.value === '' && index > 0) {
-                // If current input is empty, move focus back and then the 
-                // browser will handle the deletion in that previous box
-                inputs[index - 1].focus();
+                // We use a tiny timeout to ensure the focus shift happens 
+                // correctly after the key event is processed
+                setTimeout(() => inputs[index - 1].focus(), 0);
             }
         }
     });
 });
+
+// Initial focus for the first test case requirement
+inputs[0].focus();
