@@ -1,1 +1,31 @@
 /*  your css code here. If applicable */
+.code-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.code {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  font-size: 50px;
+  height: 80px;
+  width: 60px;
+  margin: 10px;
+  text-align: center;
+  font-weight: 300;
+  -moz-appearance: textfield; /* Removes arrows in Firefox */
+}
+
+/* Removes arrows in Chrome/Safari */
+.code::-webkit-outer-spin-button,
+.code::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.code:valid {
+  border-color: #3498db;
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
